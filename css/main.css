@@ -7580,7 +7580,6 @@ html, body {
   height: 100%; }
 
 body {
-  overflow: hidden;
   background: radial-gradient(circle, #3f5efb 0%, #fc466b 100%); }
 
 .custom-box {
