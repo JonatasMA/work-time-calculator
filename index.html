@@ -10,6 +10,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
         integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
 </head>
 
 <body>
@@ -25,30 +29,30 @@
                                     <div class="column is-two-quarter">
                                         <p>Daily Hours:</p>
                                         <input id="daily-hours" value="08:00" class="input is-primary is-large"
-                                            type="time" onkeyup="setHour()" />
+                                            type="time" oninput="setHour(); localStorage.setItem('daily-hours', this.value);" />
                                     </div>
                                 </div>
                                 <div class="columns">
                                     <div class="column is-two-quarter">
                                         <p>Start at:</p>
                                         <input id="start-1" value="08:00" class="input is-primary is-large" type="time"
-                                            onkeyup="setHour()" />
+                                            oninput="setHour()" />
                                     </div>
                                     <div class="column is-two-quarter">
                                         <p>Stop to lunch:</p>
                                         <input id="stop-1" value="11:00" class="input is-primary is-large" type="time"
-                                            onkeyup="setHour()" />
+                                            oninput="setHour()" />
                                     </div>
                                 </div>
                                 <div class="columns">
                                     <div class="column is-two-quarter">
                                         <label>Back to lunch:</label>
                                         <input id="start-2" value="12:00" class="input is-primary is-large" type="time"
-                                            onkeyup="setHour()" />
+                                            oninput="setHour()" />
                                     </div>
                                     <div class="column is-two-quarter">
                                         <label>Stop to work 🙂:</label>
-                                        <input id="stop-2" class="input is-primary is-large" type="time" disabled />
+                                        <input id="stop-2" class="input is-primary is-large has-text-primary" type="time" readonly/>
                                     </div>
                                 </div>
                             </div>

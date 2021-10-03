@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Hello Bulma!');
+  document.getElementById('daily-hours').value = localStorage.getItem('daily-hours') || "08:00"
+  setHour();
 });
 
 function setHour() {
@@ -30,5 +31,3 @@ function addTime(value1, value2) {
 function normalizeTime(time) {
   return `0${time}`.slice(-2);
 }
-
-setHour();
