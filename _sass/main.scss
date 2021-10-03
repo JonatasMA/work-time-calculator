@@ -33,6 +33,15 @@ $purple-invert: #1f6705;
 $primary: $purple;
 $primary-invert: $purple-invert;
 
+html, body {
+  height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+
 .custom-box {
     display: flex;
     flex-direction: column;
@@ -41,10 +50,9 @@ $primary-invert: $purple-invert;
     align-items: center;
 }
 
-html, body {
-  height: 100%;
-}
-
-body {
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+.mother-div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

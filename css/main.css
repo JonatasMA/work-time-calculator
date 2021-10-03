@@ -7133,6 +7133,13 @@ label.panel-block {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
+html, body {
+  height: 100%; }
+
+body {
+  overflow: hidden;
+  background: radial-gradient(circle, #3f5efb 0%, #fc466b 100%); }
+
 .custom-box {
   display: flex;
   flex-direction: column;
@@ -7140,8 +7147,8 @@ label.panel-block {
   align-content: center;
   align-items: center; }
 
-html, body {
-  height: 100%; }
-
-body {
-  background: radial-gradient(circle, #3f5efb 0%, #fc466b 100%); }
+.mother-div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
