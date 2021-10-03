@@ -69,6 +69,7 @@
   },
   "version": "0.0.4",
   "dependencies": {
+    "bulma-switch": "^2.0.0",
     "moment": "^2.29.1"
   }
 }
