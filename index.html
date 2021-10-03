@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My first Bulma website</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+        <div class="columns is-vcentered">
+            <div class="column is-two-thirds is-offset-one-fifth">
+                <div class="container">
+                    <div class="box">
+                        <div class="custom-box">
+                            <h1 class="title">How much time i need work today?</h1>
+                            <div class="column is-half">
+                                <div class="columns">
+                                    <div class="column is-two-quarter">
+                                        <p>Daily Hours:</p>
+                                        <input id="daily-hours" value="08:00" class="input is-primary is-large"
+                                            type="time" onkeyup="setHour()" />
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-two-quarter">
+                                        <p>Start at:</p>
+                                        <input id="start-1" value="08:00" class="input is-primary is-large" type="time"
+                                            onkeyup="setHour()" />
+                                    </div>
+                                    <div class="column is-two-quarter">
+                                        <p>Stop to lunch:</p>
+                                        <input id="stop-1" value="11:00" class="input is-primary is-large" type="time"
+                                            onkeyup="setHour()" />
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-two-quarter">
+                                        <label>Back to lunch:</label>
+                                        <input id="start-2" value="12:00" class="input is-primary is-large" type="time"
+                                            onkeyup="setHour()" />
+                                    </div>
+                                    <div class="column is-two-quarter">
+                                        <label>Stop to work 🙂:</label>
+                                        <input id="stop-2" class="input is-primary is-large" type="time" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script type="text/javascript" src="lib/main.js"></script>
+</body>
+
+</html>
