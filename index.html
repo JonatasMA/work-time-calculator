@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
     <link rel="manifest" href="webmanifest.webmanifest">
+    <script src="https://kit.fontawesome.com/6bd63f9e64.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,40 +24,56 @@
                 <div class="container">
                     <div class="box">
                         <div class="custom-box">
-                            <h1 class="title">How much time i need work today?</h1>
-                            <div class="field">
-                                <input id="notification" type="checkbox" name="notification"
-                                    class="switch is-rounded is-outlined" checked="checked" onchange="turnOnNotifications(); localStorage.setItem('notification', this.checked);">
-                                <label for="notification">Notifications</label>
+                            <div class="title-box">
+                                <h1 class="title" style="margin-bottom: 0px;">How much time i need work today?</h1>
+                                <div class="dropdown margin-button" onclick="toggleDropdown(this)">
+                                    <div id="backdrop"></div>
+                                    <div class="dropdown-trigger">
+                                        <button class="button is-primary is-outlined" aria-haspopup="true" aria-controls="dropdown-menu">
+                                            <span class="icon">
+                                                <i class="fas fa-cog"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                        <div class="dropdown-content">
+                                            <div class="field dropdown-item">
+                                                <input id="notification" type="checkbox" name="notification" class="switch is-rounded is-outlined" checked="checked"
+                                                    onchange="turnOnNotifications(); storeValue('notification', this.checked);">
+                                                <label for="notification">Notifications</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="column is-half">
                                 <div class="columns">
                                     <div class="column is-two-quarter">
                                         <p>Daily Hours:</p>
                                         <input id="daily-hours" value="08:00" class="input is-primary is-large"
-                                            type="time" oninput="setHour(); localStorage.setItem('daily-hours', this.value);" />
+                                            type="time" oninput="setHour()" />
                                     </div>
                                 </div>
                                 <div class="columns">
                                     <div class="column is-two-quarter">
-                                        <p>Start at:</p>
+                                        <p>Start:</p>
                                         <input id="start-1" value="08:00" class="input is-primary is-large" type="time"
                                             oninput="setHour()" />
                                     </div>
                                     <div class="column is-two-quarter">
-                                        <p>Stop to lunch:</p>
+                                        <p>Lunch time:</p>
                                         <input id="stop-1" value="11:00" class="input is-primary is-large" type="time"
                                             oninput="setHour()" />
                                     </div>
                                 </div>
                                 <div class="columns">
                                     <div class="column is-two-quarter">
-                                        <label>Back to lunch:</label>
+                                        <label>Back to work:</label>
                                         <input id="start-2" value="12:00" class="input is-primary is-large" type="time"
                                             oninput="setHour()" />
                                     </div>
                                     <div class="column is-two-quarter">
-                                        <label>Stop to work 🙂:</label>
+                                        <label>Stop! 🙂:</label>
                                         <input id="stop-2" class="input is-primary is-large has-text-primary" type="time" readonly/>
                                     </div>
                                 </div>
