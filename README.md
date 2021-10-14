@@ -1,6 +1,6 @@
 # Work time calculator
 
-https://github.com/JonatasMA/work-time-calculator
+https://jonatasma.github.io/work-time-calculator/
 
 ```sh
 git clone git@github.com:JonatasMA/work-time-calculator.git
