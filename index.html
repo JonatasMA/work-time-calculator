@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How much time i need work today?</title>
+    <title>How much time i do need work today?</title>
     <link rel="stylesheet" href="css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
         integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
@@ -20,14 +20,13 @@
 <body>
     <div class="mother-div">
         <div class="columns">
-            <div class="column is-two-thirds is-offset-one-fifth">
+            <div class="column">
                 <div class="container">
                     <div class="box">
                         <div class="custom-box">
                             <div class="title-box">
-                                <h1 class="title" style="margin-bottom: 0px;">How much time i do need work today?</h1>
-                                <div class="dropdown margin-button" onclick="toggleDropdown(this)">
-                                    <div id="backdrop"></div>
+                                <h1 id="title" class="title" style="margin-bottom: 0px;">How much time i do need work today?</h1>
+                                <div class="margin-button" onclick="toggleModal()">
                                     <div class="dropdown-trigger">
                                         <button class="button is-primary is-outlined" aria-haspopup="true" aria-controls="dropdown-menu">
                                             <span class="icon">
@@ -35,45 +34,36 @@
                                             </span>
                                         </button>
                                     </div>
-                                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                                        <div class="dropdown-content">
-                                            <div class="field dropdown-item">
-                                                <input id="notification" type="checkbox" name="notification" class="switch is-rounded is-outlined" checked="checked"
-                                                    onchange="turnOnNotifications(); storeValue('notification', this.checked);">
-                                                <label for="notification">Notifications</label>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="column is-half">
                                 <div class="columns">
                                     <div class="column is-two-quarter">
-                                        <p>Daily Hours:</p>
+                                        <label id="dailyHours"for="daily-hours">Daily Hours:</label>
                                         <input id="daily-hours" value="08:00" class="input is-primary is-large"
                                             type="time" oninput="setHour()" />
                                     </div>
                                 </div>
                                 <div class="columns">
                                     <div class="column is-two-quarter">
-                                        <p>Start:</p>
+                                        <label id="start" for="start-1">Start:</label>
                                         <input id="start-1" value="08:00" class="input is-primary is-large" type="time"
                                             oninput="setHour()" />
                                     </div>
                                     <div class="column is-two-quarter">
-                                        <p>Lunch time:</p>
+                                        <label id="lunch" for="stop-1">Lunch time:</label>
                                         <input id="stop-1" value="11:00" class="input is-primary is-large" type="time"
                                             oninput="setHour()" />
                                     </div>
                                 </div>
                                 <div class="columns">
                                     <div class="column is-two-quarter">
-                                        <label>Back to work:</label>
+                                        <label id="back" for="start-2">Back to work:</label>
                                         <input id="start-2" value="12:00" class="input is-primary is-large" type="time"
                                             oninput="setHour()" />
                                     </div>
                                     <div class="column is-two-quarter">
-                                        <label>Stop! 🙂:</label>
+                                        <label id="stop" for="stop-2">Stop! 🙂:</label>
                                         <input id="stop-2" class="input is-primary is-large has-text-primary" type="time" readonly/>
                                     </div>
                                 </div>
@@ -84,7 +74,36 @@
             </div>
         </div>
     </div>
+    <div class="modal">
+        <div class="modal-background"  onclick="toggleModal()"></div>
+        <div class="modal-content box">
+            <h1 id="settings" class="title">Settings</h1>
+            <div class="columns">
+                <div class="column">
+                    <input id="notification" type="checkbox" name="notification" class="switch is-rounded is-outlined" checked="checked"
+                        onchange="turnOnNotifications(); storeValue('notification', this.checked);">
+                    <label id="notifications" for="notification">Notifications</label>
+                </div>
+                <div class="column">
+                </div>
+                <div class="column">
+                    <div class="control" onclick="toggleLanguage()">
+                        <label class="radio">
+                            <input type="radio" name="lang" value='en' checked>
+                            English
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="lang" value='pt'>
+                            Português
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" onclick="toggleModal()" aria-label="close"></button>
+    </div>
     <script type="text/javascript" src="lib/main.js"></script>
+    <script type="text/javascript" src="lib/lang.js"></script>
 </body>
 
 </html>
