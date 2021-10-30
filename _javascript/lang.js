@@ -31,6 +31,21 @@ const dict = {
             'É, vamos voltar ao trabalho!',
             'Tudo pronto, vá descançar!'
         ]
+    },
+    de: {
+        title: "Wie lange muss ich heute arbeiten?",
+        settings: "Einstellungen",
+        notifications: "Benachrichtigungen",
+        dailyHours: "Tägliche Stunden:",
+        start: "Beginnend:",
+        lunch: "Mittagessenszeit:",
+        back: "Zurück an die arbeit:",
+        stop: "Ich hörte auf! 🙂:",
+        systemNotifications: [
+            'Mittagessenszeit',
+            'Ja, lass uns wieder an die Arbeit gehen!',
+            'Alles bereit, ruh dich aus!'
+        ]
     }
 }
 
@@ -53,3 +68,4 @@ function toggleLanguage(langSelected = null) {
     }
 }
 toggleLanguage(lang);
+
