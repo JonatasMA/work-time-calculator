@@ -29,7 +29,7 @@ const dict = {
         systemNotifications: [
             'Hora do almoço!',
             'É, vamos voltar ao trabalho!',
-            'Tudo pronto, vá descançar!'
+            'Tudo pronto, vá descansar!'
         ]
     },
     de: {
