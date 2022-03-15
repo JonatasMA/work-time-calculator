@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>How much time i do need work today?</title>
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
@@ -26,12 +24,11 @@
                         <div class="column"></div>
                         <div class="custom-box">
                             <div class="title-box">
-                                <h1 id="title" class="title" style="margin-bottom: 0px;">How much time i do need work
-                                    today?</h1>
+                                <h1 id="title" class="title" style="margin-bottom: 0px;">How much time I need work today?
+                                </h1>
                                 <div class="margin-button" onclick="toggleModal()">
                                     <div class="dropdown-trigger">
-                                        <button class="button is-primary is-outlined" aria-haspopup="true"
-                                            aria-controls="dropdown-menu">
+                                        <button class="button is-primary is-outlined" aria-haspopup="true" aria-controls="dropdown-menu">
                                             <span class="icon">
                                                 <i class="fas fa-cog"></i>
                                             </span>
@@ -44,47 +41,39 @@
                                 <div class="columns">
                                     <div class="column is-two-quarter">
                                         <label id="dailyHours" for="daily-hours">Daily Hours:</label>
-                                        <input id="daily-hours" value="08:00" class="input is-primary is-large"
-                                            type="time" oninput="setHour()" />
+                                        <input id="daily-hours" value="08:00" class="input is-primary is-large" type="time" oninput="setHour()" />
                                     </div>
                                 </div>
                                 <div class="columns">
                                     <div class="column is-two-quarter">
                                         <label id="start" for="start-1">Start:</label>
-                                        <input id="start-1" value="08:00" class="input is-primary is-large" type="time"
-                                            oninput="setHour()" />
+                                        <input id="start-1" value="08:00" class="input is-primary is-large" type="time" oninput="setHour()" />
                                     </div>
                                     <div class="column is-two-quarter">
                                         <label id="lunch" for="stop-1">Lunch time:</label>
-                                        <input id="stop-1" value="11:00" class="input is-primary is-large" type="time"
-                                            oninput="setHour()" />
+                                        <input id="stop-1" value="11:00" class="input is-primary is-large" type="time" oninput="setHour()" />
                                     </div>
                                 </div>
                                 <div class="columns">
                                     <div class="column is-two-quarter">
                                         <label id="back" for="start-2">Back to work:</label>
-                                        <input id="start-2" value="12:00" class="input is-primary is-large" type="time"
-                                            oninput="setHour()" />
+                                        <input id="start-2" value="12:00" class="input is-primary is-large" type="time" oninput="setHour()" />
                                     </div>
                                     <div class="column is-two-quarter">
                                         <label id="stop" for="stop-2">Stop! 🙂:</label>
-                                        <input id="stop-2" class="input is-primary is-large has-text-primary"
-                                            type="time" readonly />
+                                        <input id="stop-2" class="input is-primary is-large has-text-primary" type="time" readonly />
                                     </div>
                                 </div>
                                 <div class="custom-box">
                                     <div class="column"></div>
                                     <div class="columns">
                                         <a href="https://bulma.io">
-                                            <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma"
-                                                width="128" height="24">
+                                            <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
                                         </a>
                                     </div>
                                     <div class="columns">
                                         <a href="https://github.com/JonatasMA/work-time-calculator">
-                                            <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1"
-                                                width="32" data-view-component="true"
-                                                class="octicon octicon-mark-github v-align-middle">
+                                            <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
                                                 <path fill-rule="evenodd"
                                                     d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
                                                 </path>
@@ -107,8 +96,7 @@
             <div class="column"></div>
             <div class="columns">
                 <div class="column">
-                    <input id="notification" type="checkbox" name="notification" class="switch is-rounded is-outlined"
-                        checked="checked" onchange="turnOnNotifications(); storeValue('notification', this.checked);">
+                    <input id="notification" type="checkbox" name="notification" class="switch is-rounded is-outlined" checked="checked" onchange="turnOnNotifications(); storeValue('notification', this.checked);">
                     <label id="notifications" for="notification">Notifications</label>
                 </div>
                 <div class="column">
@@ -121,9 +109,14 @@
                             <input type="radio" name="lang" value='pt'>
                             Português
                         </label>
+                        <br>
                         <label class="radio">
                             <input type="radio" name="lang" value='de'>
                             Deutsch
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="lang" value='es'>
+                            Español
                         </label>
                     </div>
                 </div>
