@@ -3,7 +3,7 @@ document.querySelector(`input[name="lang"][value="${lang}"]`).checked = true;
 
 const dict = {
     en: {
-        title: "How much time i do need work today?",
+        title: "How much time I need work today?",
         settings: "Settings",
         notifications: "Notifications",
         dailyHours: "Daily hours:",
@@ -46,6 +46,22 @@ const dict = {
             'Ja, lass uns wieder an die Arbeit gehen!',
             'Alles bereit, ruh dich aus!'
         ]
+    },
+
+    es: {
+        title: "¿Cuánto tiempo tengo que trabajar hoy?",
+        settings: "Ajustes",
+        notifications: "Notificaciones",
+        dailyHours: "Horas diarias:",
+        start: "A partir de:",
+        lunch: "Hora del almuerzo:",
+        back: "Volver al trabajo:",
+        stop: "Finalizar! 🙂:",
+        systemNotifications: [
+            'Hora del almuerzo!',
+            'Volver al trabajo!',
+            'Todo listo, ve a descansar!'
+        ]
     }
 }
 
@@ -68,4 +84,3 @@ function toggleLanguage(langSelected = null) {
     }
 }
 toggleLanguage(lang);
-
