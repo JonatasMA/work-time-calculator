@@ -12521,13 +12521,15 @@ body {
     }
 }
 
+/* CSS modo dark */
+
 body.dark label,
 body.dark .title{
     color: white;
 }
 
 body.dark div.mother-div {
-    background: black;
+    background: radial-gradient(#585555, black);
 }
 
 body.dark .box {
@@ -12537,3 +12539,17 @@ body.dark .box {
 body.dark label.radio:hover {
     color: white;
 }
+
+body.dark input.input.is-primary.is-large{
+    background-color: #363636;
+    color: #aaa;
+}
+
+body.dark input.is-primary.input{
+    border-color: white;
+    color:#aaa;
+}
+
+body.dark input.has-text-primary{
+    color: #aaa !important;
+} 
