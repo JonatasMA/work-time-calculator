@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How much time i do need work today?</title>
+    <title> Working hours calculator </title>
     <link rel="stylesheet" href="css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
@@ -98,6 +98,10 @@
                 <div class="column">
                     <input id="notification" type="checkbox" name="notification" class="switch is-rounded is-outlined" checked="checked" onchange="turnOnNotifications(); storeValue('notification', this.checked);">
                     <label id="notifications" for="notification">Notifications</label>
+                    <br>
+                    <br>
+                    <input id="darkmode"class="switch is-rounded is-outlined" type="checkbox" name="darkmode" onchange="darkmode(checked);">
+                    <label class="dark" for="darkmode" > Dark Mode </label>
                 </div>
                 <div class="column">
                     <div class="control" onclick="toggleLanguage()">
