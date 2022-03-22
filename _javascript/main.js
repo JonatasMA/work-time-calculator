@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('start-2').value = fetchValue('start-2') || "12:00"
   document.getElementById('notification').checked = fetchValue('notification') == 'true' ? true : false
   setHour();
-  let statusDarkMode = fetchValue('darkmode') | false ;
+  let statusDarkMode = fetchValue('darkmode') || false ;
   toggleDarkMode(statusDarkMode);
 });
 
