@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('start-2').value = fetchValue('start-2') || "12:00"
   document.getElementById('notification').checked = fetchValue('notification') == 'true' ? true : false
   setHour();
+  toggleDarkMode(false);
 });
 
 var notification = document.getElementById('notification');
@@ -90,4 +91,13 @@ function turnOnNotifications() {
     Notification.requestPermission();
     notification.checked = false;
   }
+}
+
+function toggleDarkMode(status) {
+  const body = document.body;
+  if (status == true) {
+    body.classList.add("dark");
+  } else {
+      body.classList.remove("dark");
+    }
 }
