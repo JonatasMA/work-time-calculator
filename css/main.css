@@ -12552,3 +12552,8 @@ body.dark input.is-primary.input{
 body.dark input.has-text-primary{
     color: #aaa !important;
 } 
+
+body.dark select.languageSelect{
+    background-color: #363636;
+    color: white;
+}
