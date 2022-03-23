@@ -6,7 +6,7 @@ const dict = {
         title: "How much time I need work today?",
         settings: "Settings",
         notifications: "Notifications",
-        darkmode: "Dark Mode",
+        lbldark: "Dark mode",
         dailyHours: "Daily hours:",
         start: "Start:",
         lunch: "Lunch time:",
@@ -22,7 +22,7 @@ const dict = {
         title: "Quanto tempo eu preciso trabalhar hoje?",
         settings: "Configurações",
         notifications: "Notificações",
-        darkmode: "Modo escuro",
+        lbldark: "Modo escuro",
         dailyHours: "Horas diárias:",
         start: "Começando:",
         lunch: "Hora do almoço:",
@@ -38,7 +38,7 @@ const dict = {
         title: "Wie lange muss ich heute arbeiten?",
         settings: "Einstellungen",
         notifications: "Benachrichtigungen",
-        darkmode: "Dunkler Modus",
+        lbldark: "Dunkler modus",
         dailyHours: "Tägliche Stunden:",
         start: "Beginnend:",
         lunch: "Mittagessenszeit:",
@@ -50,12 +50,11 @@ const dict = {
             'Alles bereit, ruh dich aus!'
         ]
     },
-
     es: {
         title: "¿Cuánto tiempo tengo que trabajar hoy?",
         settings: "Ajustes",
         notifications: "Notificaciones",
-        darkmode: "Modo oscuro",
+        lbldark: "Modo oscuro",
         dailyHours: "Horas diarias:",
         start: "A partir de:",
         lunch: "Hora del almuerzo:",
@@ -65,6 +64,22 @@ const dict = {
             'Hora del almuerzo!',
             'Volver al trabajo!',
             'Todo listo, ve a descansar!'
+        ]
+    },
+    ko: {
+        title: "오늘은 언제까지 일해야 하나요?",
+        settings: "설정",
+        notifications: "알림",
+        lbldark: "다크 모드",
+        dailyHours: "일일 시간:",
+        start: "시작",
+        lunch: "점심 시간:",
+        back: "다시 일하기:",
+        stop: "나는 멈췄다! 🙂",
+        systemNotifications: [
+            '점심 시간!',
+            '다시 일하러!',
+            '준비 완료, 쉬세요!'
         ]
     }
 }
