@@ -98,30 +98,18 @@
                 <div class="column">
                     <input id="notification" type="checkbox" name="notification" class="switch is-rounded is-outlined" checked="checked" onchange="turnOnNotifications(); storeValue('notification', this.checked);">
                     <label id="notifications" for="notification">Notifications</label>
-                    <br>
-                    <br>
-                    <input id="darkmode"class="switch is-rounded is-outlined" type="checkbox" name="darkmode" onchange="darkmode(checked);">
+                    <br><br>
+                    <input id="darkmode"class="switch is-rounded is-outlined" type="checkbox" name="darkmode" onchange="toggleDarkMode(checked);">
                     <label class="dark" for="darkmode" > Dark Mode </label>
-                </div>
+                </div> 
                 <div class="column">
-                    <div class="control" onclick="toggleLanguage()">
-                        <label class="radio">
-                            <input type="radio" name="lang" value='en' checked>
-                            English
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="lang" value='pt'>
-                            Português
-                        </label>
-                        <br>
-                        <label class="radio">
-                            <input type="radio" name="lang" value='de'>
-                            Deutsch
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="lang" value='es'>
-                            Español
-                        </label>
+                    <div class="select is-rounded">
+                        <select class = "languageSelect" onchange="toggleLanguage()">
+                        <option value="en" name="lang" >Ingês</option>
+                        <option value="pt" name="lang" >Português-Brasil</option>
+                        <option value="de" name="lang" >Deutsch</option>
+                        <option value="es" name="lang" >Español</option>
+                        </select>
                     </div>
                 </div>
             </div>

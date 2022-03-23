@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('start-2').value = fetchValue('start-2') || "12:00"
   document.getElementById('notification').checked = fetchValue('notification') == 'true' ? true : false
   setHour();
+  const statusDarkMode = fetchValue('darkmode') == 'true' ? true : false;
+  document.getElementById('darkmode').checked = statusDarkMode;
+  toggleDarkMode(statusDarkMode);
 });
 
 var notification = document.getElementById('notification');
@@ -91,3 +94,10 @@ function turnOnNotifications() {
     notification.checked = false;
   }
 }
+
+function toggleDarkMode(status) {
+  const body = document.body;
+  storeValue('darkmode', status);
+  (status) ? body.classList.add("dark") : body.classList.remove("dark");
+}
+
