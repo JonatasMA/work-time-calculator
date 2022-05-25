@@ -33,20 +33,32 @@ function fetchValue(name) {
 }
 
 function setHour() {
-  const start1 = document.getElementById('start-1').value;
+  var start1 = document.getElementById('start-1').value;
   storeValue('start-1', start1);
-  const start2 = document.getElementById('start-2').value;
+  var start2 = document.getElementById('start-2').value;
   storeValue('start-2', start2);
-  const stop1 = document.getElementById('stop-1').value;
+  var stop1 = document.getElementById('stop-1').value;
   storeValue('stop-1', stop1);
-  const daily = document.getElementById('daily-hours').value;
+  var daily = document.getElementById('daily-hours').value;
   storeValue('daily-hours', daily);
-  
-  const stop2Elemnt = document.getElementById('stop-2');
-  const morning = subtractTime(stop1, start1);
-  const leftTime = subtractTime(daily, morning);
 
-  stop2Elemnt.value = addTime(start2, leftTime);
+  var stop2Elemnt = document.getElementById('stop-2');
+  var morning = subtractTime(stop1, start1);
+  var leftTime = subtractTime(daily, morning);
+  
+  var leftElemnt = document.getElementById('left-hours');
+
+  var stop2Time = addTime(start2, leftTime);
+
+  stop2Elemnt.value = stop2Time;
+
+  var now = normalizeTime(new Date);
+
+  if (stop2Time > now) {
+    leftElemnt.value = subtractTime(stop2Time, now);
+  } else {
+    leftElemnt.value = '';
+  }
 }
 
 function subtractTime(minundo, subtrahend) {

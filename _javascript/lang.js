@@ -1,5 +1,5 @@
 var lang = fetchValue('lang') || 'en';
-document.querySelector(`input[name="lang"][value="${lang}"]`).checked = true;
+document.querySelector('select.languageSelect').value = lang;
 
 const dict = {
     en: {
@@ -12,6 +12,7 @@ const dict = {
         lunch: "Lunch time:",
         back: "Back to work:",
         stop: "Stop! 🙂:",
+        leftHours: "Hours left:",
         systemNotifications: [
             'Time to lunch',
             'Oh no, go back to work!',
@@ -28,6 +29,7 @@ const dict = {
         lunch: "Hora do almoço:",
         back: "Voltando ao trabalho:",
         stop: "Parei! 🙂:",
+        leftHours: "Horas restantes:",
         systemNotifications: [
             'Hora do almoço!',
             'É, vamos voltar ao trabalho!',
@@ -44,6 +46,7 @@ const dict = {
         lunch: "Mittagessenszeit:",
         back: "Zurück an die arbeit:",
         stop: "Ich hörte auf! 🙂:",
+        leftHours: "Stunden übrig:",
         systemNotifications: [
             'Mittagessenszeit',
             'Ja, lass uns wieder an die Arbeit gehen!',
@@ -60,6 +63,7 @@ const dict = {
         lunch: "Hora del almuerzo:",
         back: "Volver al trabajo:",
         stop: "Finalizar! 🙂:",
+        leftHours: "Horas restantes:",
         systemNotifications: [
             'Hora del almuerzo!',
             'Volver al trabajo!',
@@ -76,6 +80,7 @@ const dict = {
         lunch: "점심 시간:",
         back: "다시 일하기:",
         stop: "나는 멈췄다! 🙂",
+        leftHours: "남은 시간:",
         systemNotifications: [
             '점심 시간!',
             '다시 일하러!',
@@ -86,7 +91,7 @@ const dict = {
 
 function toggleLanguage(langSelected = null) {
     if (!langSelected || (langSelected != 'en' && langSelected != 'pt')) {
-        lang = document.querySelector('input[name="lang"]:checked').value;
+        lang = document.querySelector('select.languageSelect').value ;
     } else {
         lang = langSelected;
     }
