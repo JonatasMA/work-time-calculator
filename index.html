@@ -1,130 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Working hours calculator </title>
-    <link rel="stylesheet" href="css/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="webmanifest.webmanifest">
-    <script src="https://kit.fontawesome.com/6bd63f9e64.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="src/assets/img/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working hours calculator</title>
+  <link rel="manifest" href="webmanifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="src/assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="src/assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="src/assets/img/favicon-16x16.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 
 <body>
-    <div class="mother-div">
-        <div class="columns" style="padding: 0px;">
-            <div class="column" style="padding: 0px;">
-                <div class="container">
-                    <div class="box" style="padding: 0px;">
-                        <div class="column" style="padding: 0px;"></div>
-                        <div class="custom-box">
-                            <div class="title-box">
-                                <h1 id="title" class="title" style="margin-bottom: 0px;">How much time I need work today?
-                                </h1>
-                                <div class="margin-button" onclick="toggleModal()">
-                                    <div class="dropdown-trigger">
-                                        <button class="button is-primary is-outlined" aria-haspopup="true" aria-controls="dropdown-menu">
-                                            <span class="icon">
-                                                <i class="fas fa-cog"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column"></div>
-                            <div class="column is-half">
-                                <div class="columns">
-                                    <div class="column is-two-quarter">
-                                        <label id="dailyHours" for="daily-hours">Daily Hours:</label>
-                                        <input id="daily-hours" value="08:00" class="input is-primary is-large" type="time" oninput="setHour()" />
-                                    </div>
-                                </div>
-                                <div class="columns">
-                                    <div class="column is-two-quarter">
-                                        <label id="start" for="start-1">Start:</label>
-                                        <input id="start-1" value="08:00" class="input is-primary is-large" type="time" oninput="setHour()" />
-                                    </div>
-                                    <div class="column is-two-quarter">
-                                        <label id="lunch" for="stop-1">Lunch time:</label>
-                                        <input id="stop-1" value="11:00" class="input is-primary is-large" type="time" oninput="setHour()" />
-                                    </div>
-                                </div>
-                                <div class="columns">
-                                    <div class="column is-two-quarter">
-                                        <label id="back" for="start-2">Back to work:</label>
-                                        <input id="start-2" value="12:00" class="input is-primary is-large" type="time" oninput="setHour()" />
-                                    </div>
-                                    <div class="column is-two-quarter">
-                                        <label id="stop" for="stop-2">Stop! 🙂:</label>
-                                        <input id="stop-2" class="input is-primary is-large has-text-primary" type="time" readonly />
-                                    </div>
-                                </div>
-                                <div class="columns">
-                                    <div class="column is-two-quarter">
-                                        <label id="leftHours" for="left-hours">Hours left:</label>
-                                        <input id="left-hours" class="input is-primary is-large" type="time"  readonly/>
-                                    </div>
-                                </div>
-                                <div class="custom-box">
-                                    <div class="column"></div>
-                                    <div class="columns">
-                                        <a href="https://bulma.io" target="_blank">
-                                            <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
-                                        </a>
-                                    </div>
-                                    <div class="columns">
-                                        <a href="https://github.com/JonatasMA/work-time-calculator" target="_blank">
-                                            <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
-                                                <path fill-rule="evenodd"
-                                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-                                                </path>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="column"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal">
-        <div class="modal-background" onclick="toggleModal()"></div>
-        <div class="modal-content box">
-            <h1 id="settings" class="title">Settings</h1>
-            <div class="column"></div>
-            <div class="columns">
-                <div class="column">
-                    <input id="notification" type="checkbox" name="notification" class="switch is-rounded is-outlined" checked="checked" onchange="turnOnNotifications(); storeValue('notification', this.checked);">
-                    <label id="notifications" for="notification">Notifications</label>
-                    <br><br>
-                    <input id="darkmode"class="switch is-rounded is-outlined" type="checkbox" name="darkmode" onchange="toggleDarkMode(checked);">
-                    <label id="lbldark" class="dark" for="darkmode">Dark mode</label>
-                </div> 
-                <div class="column">
-                    <div class="select is-rounded">
-                        <select class = "languageSelect" onchange="toggleLanguage()">
-                        <option value="en" name="lang" >English</option>
-                        <option value="pt" name="lang" >Português-Brasil</option>
-                        <option value="de" name="lang" >Deutsch</option>
-                        <option value="es" name="lang" >Español</option>
-                        <option value="ko" name="lang" >한국어</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="modal-close is-large" onclick="toggleModal()" aria-label="close"></button>
-    </div>
-    <script type="text/javascript" src="lib/main.js"></script>
-    <script type="text/javascript" src="lib/lang.js"></script>
+  <div id="app" class="card"></div>
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
