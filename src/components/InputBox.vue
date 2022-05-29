@@ -10,6 +10,7 @@ const timeValues = reactive({
   back: '12:00',
   end: '',
   left: '',
+  now: helpers.normalizeTime(new Date()),
 });
 
 timeValues.daily = helpers.fetchValue("daily-hours") || "08:00";
@@ -24,6 +25,13 @@ timeValues.back = helpers.fetchValue("back-input") || "13:00";
     // toggleDarkMode(statusDarkMode);
 
 helpers.setHour(timeValues);
+
+setInterval(()=>{
+  if (timeValues.left != '') {
+    timeValues.now = helpers.normalizeTime(new Date());
+    helpers.subtractTime(timeValues.now, timeValues.end);
+  }
+}, 1000);
 
 watch(timeValues, () => {
   helpers.setHour(timeValues);
@@ -44,7 +52,7 @@ watch(timeValues, () => {
         <TimeInput id="stop" for="stop-input"  label="Stop! 🙂:" v-model="timeValues.end" readonly="true"/>
       </div>
     </div>
-    <TimeInput id="leftHours" for="left-hours"  label="Hours left:" left="left: 0px;" v-model="timeValues.left" readonly="true"/>
+    <TimeInput id="leftHours" for="left-hours"  label="Hours left:" left="left: 0px;" v-model="timeValues.left" readonly="true" v-if="timeValues.left != ''"/>
   </div>
 </template>
 

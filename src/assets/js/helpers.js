@@ -101,4 +101,6 @@ export default {
     setHour,
     storeValue,
     fetchValue,
+    normalizeTime,
+    subtractTime
 }
