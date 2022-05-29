@@ -32,7 +32,7 @@ defineEmits([
 </script>
 
 <template>
-  <div class="input-field col s6">
+  <div class="input-field col s12 m6">
     <input :id="for" :value="modelValue" type="time" class="validate" @input="$emit('update:modelValue', $event.target.value)" :readonly="readonly">
     <label :id="id" :for="for" :style="left">{{label}}</label>
   </div>

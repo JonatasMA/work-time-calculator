@@ -24,11 +24,11 @@ watch(timeValues, () => {
   <div class="col s12">
     <TimeInput id="dailyHours" for="daily-hours" label="Daily Hours:" v-model="timeValues.daily" left="left: 0px;"/>
     <div>
-      <div class="row s6">
+      <div class="row s12 m6">
         <TimeInput id="start" for="start-input"  label="Start:" v-model="timeValues.start"/>
         <TimeInput id="lunch" for="lunch-input"  label="Lunch time:" v-model="timeValues.lunch"/>
       </div>
-      <div class="row s6">
+      <div class="row s12 m6">
         <TimeInput id="back" for="back-input"  label="Back to work:" v-model="timeValues.back"/>
         <TimeInput id="stop" for="stop-input"  label="Stop! 🙂:" v-model="timeValues.end" readonly="true"/>
       </div>
