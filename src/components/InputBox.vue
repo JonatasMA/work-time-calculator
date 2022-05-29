@@ -12,6 +12,17 @@ const timeValues = reactive({
   left: '',
 });
 
+timeValues.daily = helpers.fetchValue("daily-hours") || "08:00";
+timeValues.start = helpers.fetchValue("start-input") || "08:00";
+timeValues.lunch = helpers.fetchValue("lunch-input") || "11:00";
+timeValues.back = helpers.fetchValue("back-input") || "13:00";
+    // document.getElementById("notification").checked =
+        // fetchValue("notification") == "true" ? true : false;
+    // setHour();
+    // const statusDarkMode = fetchValue("darkmode") == "true" ? true : false;
+    // document.getElementById("darkmode").checked = statusDarkMode;
+    // toggleDarkMode(statusDarkMode);
+
 helpers.setHour(timeValues);
 
 watch(timeValues, () => {

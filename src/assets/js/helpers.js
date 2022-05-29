@@ -1,32 +1,7 @@
 import moment from 'moment';
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     document.getElementById("daily-hours").value =
-//         fetchValue("daily-hours") || "08:00";
-//     document.getElementById("start-1").value = fetchValue("start-1") || "08:00";
-//     document.getElementById("stop-1").value = fetchValue("stop-1") || "11:00";
-//     document.getElementById("start-2").value = fetchValue("start-2") || "12:00";
-//     document.getElementById("notification").checked =
-//         fetchValue("notification") == "true" ? true : false;
-//     setHour();
-//     const statusDarkMode = fetchValue("darkmode") == "true" ? true : false;
-//     document.getElementById("darkmode").checked = statusDarkMode;
-//     toggleDarkMode(statusDarkMode);
-// });
-
 // var notification = document.getElementById("notification");
 // var notificationInterval = 0;
-
-// function toggleModal(elem = null) {
-//     if (!elem) {
-//         elem = document.querySelector(".modal");
-//     }
-//     if (elem.classList.contains("is-active")) {
-//         elem.classList.remove("is-active");
-//     } else {
-//         elem.classList.add("is-active");
-//     }
-// }
 
 function storeValue(name, value) {
     localStorage.setItem(name, value);
@@ -36,10 +11,19 @@ function fetchValue(name) {
     return localStorage.getItem(name);
 }
 
+function storeHours(timeValues)
+{
+    storeValue("daily-hours", timeValues.daily);
+    storeValue("start-input", timeValues.start);
+    storeValue("lunch-input", timeValues.lunch);
+    storeValue("back-input", timeValues.back);
+}
+
 function setHour(timeValues) {
+    storeHours(timeValues);
     var morning = subtractTime(timeValues.lunch, timeValues.start);
     var leftTime = subtractTime(timeValues.daily, morning);
-    
+
     var stop2Time = addTime(timeValues.back, leftTime);
 
     timeValues.end = stop2Time;
@@ -113,4 +97,8 @@ function sliceTime(time) {
 // }
 
 
-export default {setHour}
+export default {
+    setHour,
+    storeValue,
+    fetchValue,
+}

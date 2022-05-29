@@ -1,4 +1,5 @@
 <script setup>
+import helpers from '../assets/js/helpers.js';
 defineProps({
   id: {
     type: String,

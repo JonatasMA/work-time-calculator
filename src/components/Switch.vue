@@ -8,6 +8,10 @@ defineProps({
     type: String,
     required: true
   },
+  disabled: {
+    type: String,
+    required: false,
+  },
 });
 
 defineEmits([
@@ -18,7 +22,7 @@ defineEmits([
 <template>
   <div class="switch" style="padding-top: 8px;">
     <label>
-      <input type="checkbox" onchange="turnOnNotifications(); storeValue('notification', this.checked);" v-model="modelValue">
+      <input type="checkbox" :disabled="disabled" onchange="turnOnNotifications(); storeValue('notification', this.checked);" v-model="modelValue">
       <span class="lever toggle"></span>
       {{label}}
     </label>

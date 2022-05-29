@@ -1,10 +1,12 @@
 <script setup>
 import InputBox from "./components/InputBox.vue";
 import Switch from "./components/Switch.vue";
+import Lang from "./assets/js/lang.js";
 document.addEventListener('DOMContentLoaded', function() {
   M.AutoInit();
   var elems = document.querySelectorAll('.dropdown-trigger');
   M.Dropdown.init(elems, {closeOnClick: false, constrainWidth: false});
+  Lang.toggleLanguage('pt');
 });
 
 function test() {
@@ -18,26 +20,26 @@ function test() {
 
 <template>
   <div class="card-content black-text">
-    <span class="card-title padding-bottom-16">How much time I need work today?
-      <i class="material-icons right dropdown-trigger" data-target='dropdown1'>more_vert</i></span>
-    <InputBox />
+    <span id="title" class="card-title padding-bottom-16">How much time I need work today?</span>
+      <i class="material-icons right dropdown-trigger" data-target='dropdown1'>more_vert</i>
+      <InputBox />
   </div>
   <ul id='dropdown1' class='dropdown-content collapsible dropdownWidth'>
     <li>
-      <Switch label="Notifications"/>
+      <Switch label="Notifications" :disabled="true"/>
     </li>
     <li>
-      <Switch label="Dark mode"/>
+      <Switch label="Dark mode" :disabled="true"/>
     </li>
     <li class="divider" tabindex="-1"></li>
     <li>
-      <div class="collapsible-header" @click="test"><i class="material-icons">language</i>Language</div>
+      <div class="collapsible-header" @click="test"><i class="material-icons">language</i><p id="language">Language</p></div>
       <div class="collapsible-body padding-1rem" style="padding: 1rem !important;">
-          <li><a href="#!">English</a></li>
-          <li><a href="#!">Português-Brasil</a></li>
-          <li><a href="#!">Deutsch</a></li>
-          <li><a href="#!">Español</a></li>
-          <li><a href="#!">한국어</a></li>
+          <li><a href="#!" @click="Lang.toggleLanguage('en')">English</a></li>
+          <li><a href="#!" @click="Lang.toggleLanguage('pt')">Português-Brasil</a></li>
+          <li><a href="#!" @click="Lang.toggleLanguage('de')">Deutsch</a></li>
+          <li><a href="#!" @click="Lang.toggleLanguage('es')">Español</a></li>
+          <li><a href="#!" @click="Lang.toggleLanguage('ko')">한국어</a></li>
       </div>
     </li>
   </ul>
