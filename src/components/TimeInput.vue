@@ -12,20 +12,28 @@ defineProps({
     type: String,
     required: true,
   },
-  value: {
+  modelValue: {
     type: String,
     required: true
+  },
+  readonly: {
+    type: String,
+    required: false
   },
   left: {
     type: String,
     required: false
   }
 });
+
+defineEmits([
+  'update:modelValue'
+]);
 </script>
 
 <template>
   <div class="input-field col s6">
-    <input :id="for" :value="value" type="time" class="validate">
+    <input :id="for" :value="modelValue" type="time" class="validate" @input="$emit('update:modelValue', $event.target.value)" :readonly="readonly">
     <label :id="id" :for="for" :style="left">{{label}}</label>
   </div>
 </template>
