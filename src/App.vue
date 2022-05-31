@@ -31,9 +31,14 @@ function test() {
     <li>
       <Switch label="Dark mode" :disabled="true"/>
     </li>
+    <li>
+       <Switch label="Tema do sistema" :disabled="true"/>  
+    </li>
     <li class="divider" tabindex="-1"></li>
     <li>
-      <div class="collapsible-header" @click="test"><i class="material-icons">language</i><p id="language">Language</p></div>
+      <div class="collapsible-header" @click="test"><i class="material-icons">language</i>
+        <p id="language">Language</p>
+      </div>
       <div class="collapsible-body padding-1rem" style="padding: 1rem !important;">
           <li><a href="#!" @click="Lang.toggleLanguage('en')">English</a></li>
           <li><a href="#!" @click="Lang.toggleLanguage('pt')">Português-Brasil</a></li>
