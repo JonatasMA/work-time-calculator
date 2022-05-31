@@ -13,6 +13,10 @@ const timeValues = reactive({
   now: helpers.normalizeTime(new Date()),
 });
 
+const additionalHours = reactive({
+  hours: []
+});
+
 timeValues.daily = helpers.fetchValue("daily-hours") || "08:00";
 timeValues.start = helpers.fetchValue("start-input") || "08:00";
 timeValues.lunch = helpers.fetchValue("lunch-input") || "11:00";
@@ -37,6 +41,18 @@ watch(timeValues, () => {
   helpers.setHour(timeValues);
 });
 
+function addNewAdditionalHours(){
+  additionalHours.hours.push({
+      initial: '08:00',
+      final: '11:00'
+    })
+}
+
+function removeAdditionalHour(index){
+  additionalHours.hours.splice(index, 1);
+}
+
+
 </script>
 
 <template>
@@ -46,6 +62,12 @@ watch(timeValues, () => {
       <div class="row s12 m6">
         <TimeInput id="start" for="start-input"  label="Start:" v-model="timeValues.start"/>
         <TimeInput id="lunch" for="lunch-input"  label="Lunch time:" v-model="timeValues.lunch"/>
+        <button v-on:click="addNewAdditionalHours()"><i class="material-icons">add</i></button>
+      </div>
+      <div class="row s12 m6" v-for="(hour,index) in additionalHours.hours" :key="index">
+        <TimeInput label="Start:" v-model="hour.initial"/>
+        <TimeInput label="Lunch time:" v-model="hour.final"/>
+        <button v-on:click="removeAdditionalHour(index)"><i class="material-icons">delete</i></button>
       </div>
       <div class="row s12 m6">
         <TimeInput id="back" for="back-input"  label="Back to work:" v-model="timeValues.back"/>
