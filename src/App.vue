@@ -40,6 +40,7 @@ function test() {
           <li><a href="#!" @click="Lang.toggleLanguage('de')">Deutsch</a></li>
           <li><a href="#!" @click="Lang.toggleLanguage('es')">Español</a></li>
           <li><a href="#!" @click="Lang.toggleLanguage('ko')">한국어</a></li>
+          <li><a href="#!" @click="Lang.toggleLanguage('ja')">日本語</a></li>
       </div>
     </li>
   </ul>

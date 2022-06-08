@@ -89,6 +89,24 @@ const dict = {
     leftHours: "남은 시간:",
     systemNotifications: ["점심 시간!", "다시 일하러!", "준비 완료, 쉬세요!"],
   },
+  ja: {
+    title: "今日の労働時間はどれくらいですか？",
+    settings: "設定",
+    language: "言語",
+    notifications: "お知らせ",
+    lbldark: "ダークモード",
+    dailyHours: "1日あたりの労働時間:",
+    start: "始業",
+    lunch: "ランチ:",
+    back: "仕事に戻った時間:",
+    stop: "終業! 🙂",
+    leftHours: "残り時間:",
+    systemNotifications: [
+      "昼食の時間です!",
+      "大変だ、仕事に戻ってください！",
+      "全て終わったので、休んでください！",
+    ],
+  },
 };
 
 function toggleLanguage(langSelected = null) {
@@ -111,4 +129,4 @@ function toggleLanguage(langSelected = null) {
 }
 toggleLanguage(lang);
 
-export default { toggleLanguage }
+export default { toggleLanguage };
