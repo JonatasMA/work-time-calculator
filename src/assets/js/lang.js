@@ -15,6 +15,7 @@ const dict = {
     back: "Back to work:",
     stop: "Stop! 🙂:",
     leftHours: "Hours left:",
+    overtime: "Overtime:",
     systemNotifications: [
       "Time to lunch",
       "Oh no, go back to work!",
@@ -33,6 +34,7 @@ const dict = {
     back: "Voltando ao trabalho:",
     stop: "Parei! 🙂:",
     leftHours: "Horas restantes:",
+    overtime: "Overtime:",
     systemNotifications: [
       "Hora do almoço!",
       "É, vamos voltar ao trabalho!",
@@ -51,6 +53,7 @@ const dict = {
     back: "Zurück an die arbeit:",
     stop: "Ich hörte auf! 🙂:",
     leftHours: "Stunden übrig:",
+    overtime: "Overtime:",
     systemNotifications: [
       "Mittagessenszeit",
       "Ja, lass uns wieder an die Arbeit gehen!",
@@ -69,6 +72,7 @@ const dict = {
     back: "Volver al trabajo:",
     stop: "Finalizar! 🙂:",
     leftHours: "Horas restantes:",
+    overtime: "Overtime:",
     systemNotifications: [
       "Hora del almuerzo!",
       "Volver al trabajo!",
@@ -87,6 +91,7 @@ const dict = {
     back: "다시 일하기:",
     stop: "나는 멈췄다! 🙂",
     leftHours: "남은 시간:",
+    overtime: "Overtime:",
     systemNotifications: ["점심 시간!", "다시 일하러!", "준비 완료, 쉬세요!"],
   },
   ja: {
@@ -101,6 +106,7 @@ const dict = {
     back: "仕事に戻った時間:",
     stop: "終業! 🙂",
     leftHours: "残り時間:",
+    overtime: "残業:",
     systemNotifications: [
       "昼食の時間です!",
       "大変だ、仕事に戻ってください！",
