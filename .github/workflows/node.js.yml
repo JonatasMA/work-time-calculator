@@ -29,6 +29,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: git add dist -f
-    - run: git commit -m "deploy gh-pages"
+    - run: git config --global user.email "jonatasmacedo70@hotmail.com"
+    - run: git config --global user.name "Jonatas Macedo"
+    - run: git commit -m "build: deploy gh-pages"
     - run: git subtree push --prefix dist origin gh-pages
     - run: git push
