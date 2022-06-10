@@ -1,5 +1,6 @@
 <script setup>
 import InputBox from "./components/InputBox.vue";
+import GitHubBadge from "./components/GitHubBadge.vue";
 import Switch from "./components/Switch.vue";
 import Lang from "./assets/js/lang.js";
 document.addEventListener('DOMContentLoaded', function() {
@@ -21,27 +22,32 @@ function test() {
 <template>
   <div class="card-content black-text">
     <span id="title" class="card-title padding-bottom-16">How much time I need work today?</span>
-      <i class="material-icons right dropdown-trigger" data-target='dropdown1'>more_vert</i>
-      <InputBox />
+    <i class="material-icons right dropdown-trigger" data-target='dropdown1'>more_vert</i>
+    <InputBox />
+    <div class="col s12 box-gh-badge">
+      <GitHubBadge />
+    </div>
   </div>
   <ul id='dropdown1' class='dropdown-content collapsible dropdownWidth'>
     <li>
-      <Switch id="notifications" label="Notifications" :disabled="true"/>
+      <Switch id=" notifications" label="Notifications" :disabled="true" />
     </li>
     <li>
-      <Switch id="lbldark" label="Dark mode" :disabled="true"/>
+      <Switch id="lbldark" label="Dark mode" :disabled="true" />
     </li>
     <li class="divider" tabindex="-1"></li>
     <li>
-      <div class="collapsible-header" @click="test"><i class="material-icons">language</i><p id="language">Language</p></div>
-      <div class="collapsible-body padding-1rem" style="padding: 1rem !important;">
-          <li><a href="#!" @click="Lang.toggleLanguage('en')">English</a></li>
-          <li><a href="#!" @click="Lang.toggleLanguage('pt')">Português-Brasil</a></li>
-          <li><a href="#!" @click="Lang.toggleLanguage('de')">Deutsch</a></li>
-          <li><a href="#!" @click="Lang.toggleLanguage('es')">Español</a></li>
-          <li><a href="#!" @click="Lang.toggleLanguage('ko')">한국어</a></li>
-          <li><a href="#!" @click="Lang.toggleLanguage('ja')">日本語</a></li>
+      <div class="collapsible-header" @click="test"><i class="material-icons">language</i>
+        <p id="language">Language</p>
       </div>
+      <div class="collapsible-body padding-1rem" style="padding: 1rem !important;">
+    <li><a href="#!" @click="Lang.toggleLanguage('en')">English</a></li>
+    <li><a href="#!" @click="Lang.toggleLanguage('pt')">Português-Brasil</a></li>
+    <li><a href="#!" @click="Lang.toggleLanguage('de')">Deutsch</a></li>
+    <li><a href="#!" @click="Lang.toggleLanguage('es')">Español</a></li>
+    <li><a href="#!" @click="Lang.toggleLanguage('ko')">한국어</a></li>
+    <li><a href="#!" @click="Lang.toggleLanguage('ja')">日本語</a></li>
+    </div>
     </li>
   </ul>
 </template>
@@ -90,6 +96,13 @@ function test() {
 
 .dropdownWidth {
   width: 190px !important;
+}
+
+.box-gh-badge {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 </style>
