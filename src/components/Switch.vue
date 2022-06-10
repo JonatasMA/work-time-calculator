@@ -1,5 +1,9 @@
 <script setup>
 defineProps({
+  id: {
+    type: String,
+    required: true,
+  },
   label: {
     type: String,
     required: true,
@@ -24,7 +28,7 @@ defineEmits([
     <label>
       <input type="checkbox" :disabled="disabled" onchange="turnOnNotifications(); storeValue('notification', this.checked);" v-model="modelValue">
       <span class="lever toggle"></span>
-      {{label}}
+      <span :id="id">{{label}}</span>
     </label>
   </div>
 </template>
