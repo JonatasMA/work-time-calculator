@@ -32,8 +32,10 @@ function setHour(timeValues) {
 
     if (stop2Time > now) {
         timeValues.left = subtractTime(stop2Time, now);
+        timeValues.overtime = "";
     } else {
         timeValues.left = "";
+        timeValues.overtime = subtractTime(now, stop2Time);
     }
 }
 
