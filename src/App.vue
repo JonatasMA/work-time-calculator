@@ -30,7 +30,7 @@ function test() {
   </div>
   <ul id='dropdown1' class='dropdown-content collapsible dropdownWidth'>
     <li>
-      <Switch id=" notifications" label="Notifications" :disabled="true" />
+      <Switch id="notifications" label="Notifications" :disabled="true" />
     </li>
     <li>
       <Switch id="lbldark" label="Dark mode" :disabled="true" />
