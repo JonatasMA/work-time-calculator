@@ -23,7 +23,12 @@ function setHour(timeValues) {
     storeHours(timeValues);
     var morning = subtractTime(timeValues.lunch, timeValues.start);
     var leftTime = subtractTime(timeValues.daily, morning);
-
+    for (var hour of timeValues.hours) {
+        if (hour) {
+            var breakTime = subtractTime(hour.end, hour.start);
+            leftTime = subtractTime(leftTime, breakTime);
+        }
+    }
     var stop2Time = addTime(timeValues.back, leftTime);
 
     timeValues.end = stop2Time;
