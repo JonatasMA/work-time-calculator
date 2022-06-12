@@ -110,4 +110,10 @@ function removeAdditionalHour(index){
     width: 40px;
     height: 40px;
   }
+
+  @media (max-width: 412px) {
+    .rounded-button {
+      bottom: -66px;
+    }
+  }
 </style>
