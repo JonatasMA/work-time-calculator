@@ -26,10 +26,10 @@ function test() {
   </div>
   <ul id='dropdown1' class='dropdown-content collapsible dropdownWidth'>
     <li>
-      <Switch label="Notifications" :disabled="true"/>
+      <Switch id="notifications" label="Notifications" :disabled="true"/>
     </li>
     <li>
-      <Switch label="Dark mode" :disabled="true"/>
+      <Switch id="lbldark" label="Dark mode" :disabled="true"/>
     </li>
     <li class="divider" tabindex="-1"></li>
     <li>
@@ -40,6 +40,7 @@ function test() {
           <li><a href="#!" @click="Lang.toggleLanguage('de')">Deutsch</a></li>
           <li><a href="#!" @click="Lang.toggleLanguage('es')">Español</a></li>
           <li><a href="#!" @click="Lang.toggleLanguage('ko')">한국어</a></li>
+          <li><a href="#!" @click="Lang.toggleLanguage('ja')">日本語</a></li>
       </div>
     </li>
   </ul>
