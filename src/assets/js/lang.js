@@ -1,19 +1,21 @@
 import helpers from "./helpers";
+
 var lang = helpers.fetchValue("lang") || "en";
 // document.querySelector("select.languageSelect").value = lang;
 
 const dict = {
   en: {
+    name: "English",
     title: "How much time I need work today?",
     settings: "Settings",
     language: "Language",
     notifications: "Notifications",
-    lbldark: "Dark mode",
+    theme: "Dark mode",
     dailyHours: "Daily hours:",
-    start: "Start:",
-    lunch: "Lunch time:",
+    starting: "Starting:",
+    stoping: "Stopping:",
     back: "Back to work:",
-    stop: "Stop! 🙂:",
+    ending: "Ending the day! 🙂:",
     leftHours: "Hours left:",
     overtime: "Overtime:",
     systemNotifications: [
@@ -23,16 +25,17 @@ const dict = {
     ],
   },
   pt: {
+    name: "Português",
     title: "Quanto tempo eu preciso trabalhar hoje?",
     settings: "Configurações",
     language: "Idioma",
     notifications: "Notificações",
-    lbldark: "Modo escuro",
+    theme: "Modo escuro",
     dailyHours: "Horas diárias:",
-    start: "Começando:",
-    lunch: "Hora do almoço:",
+    starting: "Começando:",
+    stoping: "Hora do almoço:",
     back: "Voltando ao trabalho:",
-    stop: "Parei! 🙂:",
+    ending: "Parei! 🙂:",
     leftHours: "Horas restantes:",
     overtime: "Horas extras:",
     systemNotifications: [
@@ -42,16 +45,17 @@ const dict = {
     ],
   },
   de: {
+    name: "Deutsch",
     title: "Wie lange muss ich heute arbeiten?",
     settings: "Einstellungen",
     language: "Sprache",
     notifications: "Benachrichtigungen",
-    lbldark: "Dunkler modus",
+    theme: "Dunkler modus",
     dailyHours: "Tägliche Stunden:",
-    start: "Beginnend:",
-    lunch: "Mittagessenszeit:",
+    starting: "Beginnend:",
+    stoping: "Mittagessenszeit:",
     back: "Zurück an die arbeit:",
-    stop: "Ich hörte auf! 🙂:",
+    ending: "Ich hörte auf! 🙂:",
     leftHours: "Stunden übrig:",
     overtime: "Überstunden gemacht:",
     systemNotifications: [
@@ -61,16 +65,17 @@ const dict = {
     ],
   },
   es: {
+    name: "Español",
     title: "¿Cuánto tiempo tengo que trabajar hoy?",
     settings: "Ajustes",
     language: "Idioma",
     notifications: "Notificaciones",
-    lbldark: "Modo oscuro",
+    theme: "Modo oscuro",
     dailyHours: "Horas diarias:",
-    start: "A partir de:",
-    lunch: "Hora del almuerzo:",
+    starting: "A partir de:",
+    stoping: "Hora del almuerzo:",
     back: "Volver al trabajo:",
-    stop: "Finalizar! 🙂:",
+    ending: "Finalizar! 🙂:",
     leftHours: "Horas restantes:",
     overtime: "La horas extraordinarias:",
     systemNotifications: [
@@ -80,31 +85,33 @@ const dict = {
     ],
   },
   ko: {
+    name: "한국어",
     title: "오늘은 언제까지 일해야 하나요?",
     settings: "설정",
     language: "언어",
     notifications: "알림",
-    lbldark: "다크 모드",
+    theme: "다크 모드",
     dailyHours: "일일 시간:",
-    start: "시작",
-    lunch: "점심 시간:",
+    starting: "시작",
+    stoping: "점심 시간:",
     back: "다시 일하기:",
-    stop: "나는 멈췄다! 🙂",
+    ending: "나는 멈췄다! 🙂",
     leftHours: "남은 시간:",
     overtime: "시간 외에:",
     systemNotifications: ["점심 시간!", "다시 일하러!", "준비 완료, 쉬세요!"],
   },
   ja: {
+    name: "日本語",
     title: "今日の労働時間はどれくらいですか？",
     settings: "設定",
     language: "言語",
     notifications: "お知らせ",
-    lbldark: "ダークモード",
+    theme: "ダークモード",
     dailyHours: "1日あたりの労働時間:",
-    start: "始業",
-    lunch: "ランチ:",
+    starting: "始業",
+    stoping: "ランチ:",
     back: "仕事に戻った時間:",
-    stop: "終業! 🙂",
+    ending: "終業! 🙂",
     leftHours: "残り時間:",
     overtime: "残業:",
     systemNotifications: [
@@ -117,7 +124,7 @@ const dict = {
 
 function toggleLanguage(langSelected = null) {
   if (!langSelected) {
-    lang = "en";
+    lang = helpers.fetchValue("lang") || "en";
   } else {
     lang = langSelected;
   }
@@ -126,13 +133,15 @@ function toggleLanguage(langSelected = null) {
 
   for (const key in dict[lang]) {
     if (Object.hasOwnProperty.call(dict[lang], key)) {
-      const elementText = document.getElementById(key);
+      const elementText = document.querySelectorAll(`#${key}`);
       if (elementText) {
-        elementText.textContent = dict[lang][key];
+        for (var i = 0; i < elementText.length; i++) {
+          elementText[i].innerText = dict[lang][key];
+        }
       }
     }
   }
 }
 toggleLanguage(lang);
 
-export default { toggleLanguage };
+export default { toggleLanguage, dict };

@@ -7,15 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
   M.AutoInit();
   var elems = document.querySelectorAll('.dropdown-trigger');
   M.Dropdown.init(elems, {closeOnClick: false, constrainWidth: false});
-  Lang.toggleLanguage('pt');
+  toggleLanguage();
 });
 
-function test() {
+function toggleLanguage(lang) {
+  Lang.toggleLanguage(lang);
+  showLanguages();
+}
+
+function showLanguages() {
   var elems = document.querySelectorAll('.dropdown-trigger');
   var dropDown = M.Dropdown.getInstance(elems[0]);
   setTimeout(()=>{
     dropDown.recalculateDimensions();
-  }, 200);
+  }, 350);
 }
 </script>
 
@@ -74,7 +79,7 @@ function test() {
 @media (max-width: 412px) {
   #app {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
   }
 }
 
