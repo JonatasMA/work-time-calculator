@@ -42,13 +42,13 @@ function showLanguages() {
     </li>
     <li class="divider" tabindex="-1"></li>
     <li>
-      <div class="collapsible-header" @click="test"><i class="material-icons">language</i>
+      <div class="collapsible-header" @click="showLanguages"><i class="material-icons">language</i>
         <p id="language">Language</p>
       </div>
-    <div class="collapsible-body padding-1rem" style="padding: 1rem !important;">
-      <li v-for="(lang, index) in Lang.dict" :key="index">
-        <a href="#!" @click="toggleLanguage(index)">{{lang.name}}</a>
-      </li>
+      <div class="collapsible-body padding-1rem" style="padding: 1rem !important;">
+    <li v-for="(lang, index) in Lang.dict" :key="index">
+      <a href="#!" @click="toggleLanguage(index)">{{lang.name}}</a>
+    </li>
     </div>
     </li>
   </ul>
