@@ -120,6 +120,26 @@ const dict = {
       "全て終わったので、休んでください！",
     ],
   },
+  nl: {
+    name: "Nederlands",
+    title: "Hoelang moet ik vandaag werken?",
+    settings: "Instellingen",
+    language: "Taal",
+    notifications: "Notificaties",
+    theme: "Dark mode",
+    dailyHours: "Dagelijkse uren:",
+    starting: "Begin:",
+    stoping: "Einde:",
+    back: "Terug starten met werken:",
+    ending: "Einde van de dag! 🙂:",
+    leftHours: "Resterende uren:",
+    overtime: "Overuren:",
+    systemNotifications: [
+      "Luch tijd!",
+      "Oh nee, Begin terug te werken!",
+      "Helemaal klaar, ga lekker rusten!",
+    ],
+  },
 };
 
 function toggleLanguage(langSelected = null) {
