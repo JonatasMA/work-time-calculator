@@ -97,7 +97,7 @@ function showLanguages() {
 }
 
 .dropdownWidth {
-  width: 190px !important;
+  width: 192px !important;
 }
 
 .box-gh-badge {
