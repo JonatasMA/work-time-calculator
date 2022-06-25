@@ -52,6 +52,11 @@ defineEmits([
     height: 16px !important;
   }
 
+  .switch {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
   .switch label .lever:before {
     content: "";
     position: absolute;
