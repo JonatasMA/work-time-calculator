@@ -6,7 +6,7 @@ var lang = helpers.fetchValue("lang") || "en";
 const dict = {
   en: {
     name: "English",
-    title: "How much time I need work today?",
+    title: "How much time do I need to work today?",
     settings: "Settings",
     language: "Language",
     notifications: "Notifications",
