@@ -3,7 +3,7 @@ document.querySelector("select.languageSelect").value = lang;
 
 const dict = {
   en: {
-    title: "How much time I need work today?",
+    title: "How much time do I need to work today?",
     settings: "Settings",
     notifications: "Notifications",
     lbldark: "Dark mode",

@@ -26,7 +26,7 @@ function showLanguages() {
 
 <template>
   <div class="card-content black-text">
-    <span id="title" class="card-title padding-bottom-16">How much time I need work today?</span>
+    <span id="title" class="card-title padding-bottom-16">How much time do I need to work today?</span>
     <i class="material-icons right dropdown-trigger" data-target='dropdown1'>more_vert</i>
     <InputBox />
     <div class="col s12 box-gh-badge">
