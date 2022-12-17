@@ -16,7 +16,7 @@ const dict = {
     stoping: "Stopping:",
     back: "Back to work:",
     ending: "Ending the day! 🙂:",
-    leftHours: "Hours left:",
+    leftHours: "Time left:",
     overtime: "Overtime:",
     systemNotifications: [
       "Time to lunch",
@@ -36,7 +36,7 @@ const dict = {
     stoping: "Parando:",
     back: "Voltando ao trabalho:",
     ending: "Dia finalizado! 😎:",
-    leftHours: "Horas restantes:",
+    leftHours: "Tempo restante:",
     overtime: "Horas extras:",
     systemNotifications: [
       "Hora do almoço!",
@@ -56,7 +56,7 @@ const dict = {
     stoping: "Stoppen:",
     back: "Zurück an die arbeit:",
     ending: "Arbeitstag fertig! 🙂:",
-    leftHours: "Stunden übrig:",
+    leftHours: "Übrige Zeit:",
     overtime: "Überstunden gemacht:",
     systemNotifications: [
       "Mittagessenszeit",
@@ -76,7 +76,7 @@ const dict = {
     stoping: "Parada:",
     back: "Volver al trabajo:",
     ending: "Jornada terminada! 🙂:",
-    leftHours: "Horas restantes:",
+    leftHours: "Tiempo restante:",
     overtime: "La horas extraordinarias:",
     systemNotifications: [
       "Hora del almuerzo!",
@@ -132,7 +132,7 @@ const dict = {
     stoping: "Einde:",
     back: "Terug starten met werken:",
     ending: "Einde van de dag! 🙂:",
-    leftHours: "Resterende uren:",
+    leftHours: "Overgebleven tijd:",
     overtime: "Overuren:",
     systemNotifications: [
       "Luch tijd!",
