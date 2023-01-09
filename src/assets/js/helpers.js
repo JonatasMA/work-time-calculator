@@ -1,18 +1,18 @@
 import moment from 'moment';
+import { dict } from './lang';
+import { inject } from 'vue'
 
-// var notification = document.getElementById("notification");
-// var notificationInterval = 0;
+var notificationInterval = 0;
 
-function storeValue(name, value) {
+export function storeValue(name, value) {
     localStorage.setItem(name, value);
 }
 
-function fetchValue(name) {
+export function fetchValue(name) {
     return localStorage.getItem(name);
 }
 
-function storeHours(timeValues)
-{
+function storeHours(timeValues) {
     storeValue("daily-hours", timeValues.daily);
     storeValue("start-input", timeValues.start);
     storeValue("lunch-input", timeValues.lunch);
@@ -70,32 +70,42 @@ function sliceTime(time) {
     return `0${time}`.slice(-2);
 }
 
-// function turnOnNotifications() {
-//     if (Notification.permission == "granted") {
-//         clearInterval(notificationInterval);
-//         notificationInterval = setInterval(() => {
-//             if (notification.checked && new Date().getSeconds() == 0) {
-//                 const stop1 = document.getElementById("stop-1").value;
-//                 const start2 = document.getElementById("start-2").value;
-//                 const stop2Elemnt = document.getElementById("stop-2").value;
-//                 const actualy = normalizeTime(new Date());
-//                 const icon =
-//                     "https://jonatasma.github.io/work-time-calculator/assets/img/android-chrome-512x512.png";
-//                 switch (actualy) {
-//                     case stop1:
-//                         new Notification(dict[lang].systemNotifications[0], { icon: icon });
-//                     case start2:
-//                         new Notification(dict[lang].systemNotifications[1], { icon: icon });
-//                     case stop2Elemnt:
-//                         new Notification(dict[lang].systemNotifications[2], { icon: icon });
-//                 }
-//             }
-//         }, 900);
-//     } else {
-//         Notification.requestPermission();
-//         notification.checked = false;
-//     }
-// }
+function turnOnNotifications(notification, timeValues) {
+    console.log(notification);
+    storeValue('notification', notification);
+
+    if (!notification) {
+        clearInterval(notificationInterval)
+        return;
+    }
+
+    if (Notification.permission == "granted" && notification) {
+        clearInterval(notificationInterval);
+        notificationInterval = setInterval(() => {
+            if (new Date().getSeconds() == 0) {
+                const lang = fetchValue("lang") || "en";
+                const actualy = normalizeTime(new Date());
+                const icon =
+                    "https://github.com/JonatasMA/work-time-calculator/raw/main/src/assets/img/android-chrome-512x512.png";
+                console.log(actualy, timeValues.back, actualy == timeValues.back);
+
+                switch (actualy) {
+                    // case timeValues.end:
+                    //     new Notification(dict[lang].systemNotifications[0], { icon: icon });
+                    case timeValues.back:
+                        new Notification(dict[lang].systemNotifications[1], { icon: icon });
+                        break;
+                    case timeValues.end:
+                        new Notification(dict[lang].systemNotifications[2], { icon: icon });
+                        break;
+                }
+            }
+        }, 1000);
+    } else {
+        Notification.requestPermission();
+        notification = false;
+    }
+}
 
 // function toggleDarkMode(status) {
 //     const body = document.body;
@@ -109,5 +119,6 @@ export default {
     storeValue,
     fetchValue,
     normalizeTime,
-    subtractTime
+    subtractTime,
+    turnOnNotifications
 }

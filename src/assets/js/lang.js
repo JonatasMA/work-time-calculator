@@ -1,9 +1,9 @@
-import helpers from "./helpers";
+import { storeValue, fetchValue } from "./helpers";
 
-var lang = helpers.fetchValue("lang") || "en";
+var lang = fetchValue("lang") || "en";
 // document.querySelector("select.languageSelect").value = lang;
 
-const dict = {
+export const dict = {
   en: {
     name: "English",
     title: "How much time do I need to work today?",
@@ -142,14 +142,14 @@ const dict = {
   },
 };
 
-function toggleLanguage(langSelected = null) {
+export function toggleLanguage(langSelected = null) {
   if (!langSelected) {
-    lang = helpers.fetchValue("lang") || "en";
+    lang = fetchValue("lang") || "en";
   } else {
     lang = langSelected;
   }
 
-  helpers.storeValue("lang", lang);
+  storeValue("lang", lang);
 
   for (const key in dict[lang]) {
     if (Object.hasOwnProperty.call(dict[lang], key)) {
@@ -164,4 +164,4 @@ function toggleLanguage(langSelected = null) {
 }
 toggleLanguage(lang);
 
-export default { toggleLanguage, dict };
+export default { };

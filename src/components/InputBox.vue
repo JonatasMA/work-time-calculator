@@ -2,19 +2,10 @@
 import {reactive, watch} from 'vue';
 import TimeInput from "./TimeInput.vue";
 import helpers from "../assets/js/helpers.js";
-import Lang from "../assets/js/lang.js";
+import { toggleLanguage } from "../assets/js/lang.js";
+import { inject } from 'vue'
 
-const timeValues = reactive({
-  daily: '08:00',
-  start: '08:00',
-  lunch: '11:00',
-  hours: [],
-  back: '12:00',
-  end: '',
-  left: '',
-  overtime: '',
-  now: helpers.normalizeTime(new Date()),
-});
+const timeValues = inject('timeValues');
 
 timeValues.daily = helpers.fetchValue("daily-hours") || "08:00";
 timeValues.start = helpers.fetchValue("start-input") || "08:00";
@@ -38,7 +29,7 @@ watch(timeValues, () => {
   helpers.setHour(timeValues);
   if (timeValues.left != '' || timeValues.overtime != '') {
     setTimeout(() => {
-      Lang.toggleLanguage();
+      toggleLanguage();
     }, 0);
   }
 });
@@ -49,7 +40,7 @@ function addNewAdditionalHours(){
     end: ''
   });
   setTimeout(() => {
-    Lang.toggleLanguage();
+    toggleLanguage();
   }, 0);
 }
 
