@@ -1,4 +1,9 @@
 <script setup>
+
+import helpers from '../assets/js/helpers.js';
+import { inject } from 'vue'
+
+const timeValues = inject('timeValues');
 defineProps({
   id: {
     type: String,
@@ -9,7 +14,7 @@ defineProps({
     required: true,
   },
   modelValue: {
-    type: String,
+    type: Boolean,
     required: true
   },
   disabled: {
@@ -21,12 +26,14 @@ defineProps({
 defineEmits([
   'update:modelValue'
 ]);
+
 </script>
 
 <template>
   <div class="switch" style="padding-top: 8px;">
     <label>
-      <input type="checkbox" :disabled="disabled" onchange="turnOnNotifications(); storeValue('notification', this.checked);" v-model="modelValue">
+      <input type="checkbox" :disabled="disabled" :change="helpers.turnOnNotifications(modelValue, timeValues)"
+        @input="$emit('update:modelValue', $event.target.value)"  v-model="modelValue">
       <span class="lever toggle"></span>
       <span :id="id">{{label}}</span>
     </label>
