@@ -8,6 +8,7 @@ import { inject } from 'vue'
 const timeValues = inject('timeValues');
 
 timeValues.daily = helpers.fetchValue("daily-hours") || "08:00";
+timeValues.hours = JSON.parse(helpers.fetchValue("hours")) || [];
 timeValues.start = helpers.fetchValue("start-input") || "08:00";
 timeValues.lunch = helpers.fetchValue("lunch-input") || "11:00";
 timeValues.back = helpers.fetchValue("back-input") || "13:00";
@@ -35,10 +36,22 @@ watch(timeValues, () => {
 });
 
 function addNewAdditionalHours(){
-  timeValues.hours.push({
+  const time = {
     start: '',
     end: ''
-  });
+  };
+
+  if (timeValues.hours.length == 0) {
+    time.start = timeValues.back;
+    time.end = helpers.addTime(timeValues.back, '00:30');
+  } else {
+    time.start = helpers.addTime(timeValues.hours.at(-1).end, '00:30');
+    time.end = helpers.addTime(time.start, '00:30');
+  }
+
+  timeValues.hours.push(time);
+  timeValues.back = helpers.addTime(time.end, '01:00');
+
   setTimeout(() => {
     toggleLanguage();
   }, 0);

@@ -17,6 +17,7 @@ function storeHours(timeValues) {
     storeValue("start-input", timeValues.start);
     storeValue("lunch-input", timeValues.lunch);
     storeValue("back-input", timeValues.back);
+    storeValue("hours", JSON.stringify(timeValues.hours));
 }
 
 function setHour(timeValues) {
@@ -120,5 +121,6 @@ export default {
     fetchValue,
     normalizeTime,
     subtractTime,
+    addTime,
     turnOnNotifications
 }
