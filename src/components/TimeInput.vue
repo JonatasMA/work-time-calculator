@@ -44,7 +44,7 @@ function getTime() {
         <input :id="for" :value="modelValue" type="time" :class="{ validate: !readonly }"
             @input="$emit('update:modelValue', $event.target.value)" :readonly="readonly">
         <label :id="id" :for="for" :style="left">{{label}}</label>
-        <i v-if="props.for.includes('input')" @click="modelValue = getTime()" class="material-icons prefix icon-position">update</i>
+        <i v-if="props.for.includes('input')" @click="$emit('update:modelValue', getTime())" class="material-icons prefix icon-position">update</i>
     </div>
 </template>
 
