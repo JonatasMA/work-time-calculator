@@ -96,13 +96,13 @@ function removeAdditionalHour(index) {
             </div>
             <div class="row s12 m6">
                 <TimeInput id="back" for="back-input" label="Back to work:" v-model="timeValues.back" />
-                <TimeInput id="ending" for="stop-input" label="Stop! 🙂:" v-model="timeValues.end" readonly="true" />
+                <TimeInput id="ending" for="stop-output" label="Stop! 🙂:" v-model="timeValues.end" readonly="true" />
             </div>
         </div>
         <TimeInput id="leftHours" for="left-hours" label="Hours left:" left="left: 0px;" v-model="timeValues.left"
             readonly="true" v-if="timeValues.left != ''" />
-        <TimeInput id="overtime" for="overtime-input" label="Overtime:" left="left: 0px;" v-model="timeValues.overtime"
-            readonly="true" v-if="timeValues.overtime != ''" />
+        <TimeInput id="overtime" for="overtime-output" label="Overtime:" left="left: 0px;" v-model="timeValues.overtime"
+            readonly="true" v-else />
     </div>
 </template>
 
