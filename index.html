@@ -2,39 +2,48 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="src/assets/img/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Working hours calculator</title>
-  <link rel="manifest" href="webmanifest.webmanifest">
-  <link rel="apple-touch-icon" sizes="180x180" href="src/assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="src/assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="src/assets/img/favicon-16x16.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style>
-    .card-m3 {
-      display: flex;
-      box-sizing: border-box;
-      flex-direction: column;
-      align-items: stretch;
-      padding: 0px;
-      background: #FFFBFE;
-      border: 1px solid #79747E;
-      border-radius: 12px;
-      flex: none;
-      flex-grow: 0;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-      order: 1;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="src/assets/img/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working hours calculator</title>
+    <link rel="manifest" href="webmanifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/assets/img/favicon-16x16.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .card-m3 {
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column;
+            align-items: stretch;
+            padding: 0px;
+            background: #FFFBFE;
+            border: 1px solid #79747E;
+            border-radius: 12px;
+            flex: none;
+            flex-grow: 0;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+            order: 1;
+        }
+
+        @media (max-width: 600px) {
+            .app {
+                min-width: 100%;
+                height: 100vh;
+                overflow: auto;
+                border-radius: 0px;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
-  <div id="app" class="card-m3"></div>
-  <script type="module" src="/src/main.js"></script>
+    <div id="app" class="card-m3 app"></div>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
