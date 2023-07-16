@@ -54,5 +54,6 @@ function getTime() {
     top: 0.9rem;
     right: -0.8em;
     background-color: white;
+    cursor: pointer;
 }
 </style>
