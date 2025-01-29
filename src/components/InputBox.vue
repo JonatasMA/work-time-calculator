@@ -2,8 +2,9 @@
 import { reactive, watch } from 'vue';
 import TimeInput from "./TimeInput.vue";
 import helpers from "../assets/js/helpers.js";
-import { toggleLanguage } from "../assets/js/lang.js";
 import { inject } from 'vue'
+import { useLocale } from 'vuetify'
+const { t } = useLocale();
 
 const timeValues = inject('timeValues');
 
@@ -12,12 +13,6 @@ timeValues.hours = JSON.parse(helpers.fetchValue("hours")) || [];
 timeValues.start = helpers.fetchValue("start-input") || "08:00";
 timeValues.lunch = helpers.fetchValue("lunch-input") || "11:00";
 timeValues.back = helpers.fetchValue("back-input") || "13:00";
-// document.getElementById("notification").checked =
-// fetchValue("notification") == "true" ? true : false;
-// setHour();
-// const statusDarkMode = fetchValue("darkmode") == "true" ? true : false;
-// document.getElementById("darkmode").checked = statusDarkMode;
-// toggleDarkMode(statusDarkMode);
 
 helpers.setHour(timeValues);
 
@@ -29,9 +24,6 @@ setInterval(() => {
 watch(timeValues, () => {
     helpers.setHour(timeValues);
     if (timeValues.left != '' || timeValues.overtime != '') {
-        setTimeout(() => {
-            toggleLanguage();
-        }, 0);
     }
 });
 
@@ -61,124 +53,49 @@ function removeAdditionalHour(index) {
     timeValues.hours.splice(index, 1);
 }
 
+function getTime() {
+    const date = new Date();
+    var hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+    var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+    return hours + ':' + minutes;
+}
 
 </script>
 
 <template>
-    <div class="col s12">
-        <TimeInput id="dailyHours" for="daily-hours" label="Daily Hours:" v-model="timeValues.daily" left="left: 0px;" />
-        <div>
-            <div class="card row s12 m6 rouded-box" style="padding: 6px;">
-                <div class="col s10 m11">
-                    <TimeInput id="starting" for="start-input" label="Start:" v-model="timeValues.start"
-                        style="margin-bottom: 0px;" />
-                    <TimeInput id="stoping" for="lunch-input" label="Lunch time:" v-model="timeValues.lunch"
-                        style="margin-bottom: 0px;" />
-                </div>
-                <div class="col s2 m1">
-                    <button class="right waves-effect waves-light rounded-button s2 m2"
-                        v-on:click="addNewAdditionalHours()"><i class="material-icons" style="top: 2px;">add</i></button>
-                </div>
-            </div>
-            <div class="card row s12 m6 rouded-box fadeIn" v-for="(hour, index) in timeValues.hours" :key="index"
-                style="padding: 6px;">
-                <div class="col s10 m11">
-                    <TimeInput id="starting" for="start-input" label="Start:" v-model="hour.start"
-                        style="margin-bottom: 0px;" />
-                    <TimeInput id="stoping" for="lunch-input" label="Lunch time:" v-model="hour.end"
-                        style="margin-bottom: 0px;" />
-                </div>
-                <div class="col s2 m1">
-                    <button class="right waves-effect waves-light rounded-button"
-                        v-on:click="removeAdditionalHour(index)"><i class="material-icons"
-                            style="top: 2px;">delete</i></button>
-                </div>
-            </div>
-            <div class="row s12 m6">
-                <TimeInput id="back" for="back-input" label="Back to work:" v-model="timeValues.back" />
-                <TimeInput id="ending" for="stop-output" label="Stop! 🙂:" v-model="timeValues.end" readonly="true" />
-            </div>
-        </div>
-        <TimeInput id="leftHours" for="left-hours" label="Hours left:" left="left: 0px;" v-model="timeValues.left"
-            readonly="true" v-if="timeValues.left != ''" />
-        <TimeInput id="overtime" for="overtime-output" label="Overtime:" left="left: 0px;" v-model="timeValues.overtime"
-            readonly="true" v-else />
-    </div>
+    <v-container>
+
+        <v-text-field id="dailyHours" :label="t('$vuetify.dailyHours')" v-model="timeValues.daily"
+            type="time"></v-text-field>
+        <v-card>
+            <v-row class="pa-6 d-flex flex-wrap ga-3">
+                <v-text-field id="starting" :label="t('$vuetify.starting')" v-model="timeValues.start" type="time"
+                    append-inner-icon="md:update" @click:append-inner="timeValues.start = getTime()"></v-text-field>
+                <v-text-field id="stoping" :label="t('$vuetify.stoping')" v-model="timeValues.lunch" type="time"
+                    append-inner-icon="md:update" @click:append-inner="timeValues.lunch = getTime()"></v-text-field>
+                <v-btn icon="$plus" v-on:click="addNewAdditionalHours()"></v-btn>
+            </v-row>
+        </v-card>
+        <v-card v-for="(hour, index) in timeValues.hours" :key="index" class="mt-6">
+            <v-row class="pa-6 d-flex flex-wrap ga-3">
+                <v-text-field id="starting" :label="t('$vuetify.starting')" v-model="hour.start" type="time"
+                    append-inner-icon="md:update" @click:append-inner="hour.start = getTime()"></v-text-field>
+                <v-text-field id="stoping" :label="t('$vuetify.stoping')" v-model="hour.end" type="time"
+                    append-inner-icon="md:update" @click:append-inner="hour.end = getTime()"></v-text-field>
+                <v-btn icon="md:delete" v-on:click="removeAdditionalHour(index)"></v-btn>
+            </v-row>
+        </v-card>
+        <v-row class="ma-0 py-6 ga-3">
+            <v-text-field id="back" :label="t('$vuetify.back')" v-model="timeValues.back" type="time"
+                append-inner-icon="md:update" @click:append-inner="timeValues.back = getTime()"></v-text-field>
+            <v-text-field id="ending" :label="t('$vuetify.ending')" v-model="timeValues.end" readonly
+                type="time"></v-text-field>
+        </v-row>
+        <v-text-field id="leftHours" :label="t('$vuetify.leftHours')" v-model="timeValues.left" type="time"
+            v-if="timeValues.left != ''" readonly></v-text-field>
+        <v-text-field id="overtime" :label="t('$vuetify.overtime')" v-model="timeValues.overtime" type="time" readonly
+            v-else></v-text-field>
+    </v-container>
 </template>
 
-<style scoped>
-.rounded-button {
-    color: white;
-    background-color: mediumpurple;
-    margin: 15px 0px;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.8rem;
-    width: 40px;
-    height: 40px;
-}
-
-.rouded-box {
-    border-radius: 12px;
-    -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
-
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-.fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-}
-
-.fadeOut {
-    -webkit-animation-name: fadeOut;
-    animation-name: fadeOut;
-}
-
-@media (max-width: 412px) {
-    .rounded-button {
-        bottom: -66px;
-    }
-}
-</style>
+<style scoped></style>

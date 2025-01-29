@@ -1,118 +1,68 @@
-<!-- 
-<script>
-  export default {
-    onMounted() {
-      console.log(this.vapo);
-    }
-  }
-</script> -->
-
 <script setup>
 import InputBox from "./components/InputBox.vue";
 import GitHubBadge from "./components/GitHubBadge.vue";
-import Switch from "./components/Switch.vue";
-import { toggleLanguage, dict } from "./assets/js/lang.js";
-import { storeValue, fetchValue } from "./assets/js/helpers";
+import dict from "./assets/js/lang.js";
+import { storeValue, fetchValue, turnOnNotifications } from "./assets/js/helpers";
+import { ref, inject } from 'vue';
+import { useTheme } from 'vuetify'
+import { useLocale } from 'vuetify'
+const { t } = useLocale();
+const timeValues = inject('timeValues');
 
-document.addEventListener('DOMContentLoaded', function () {
-    M.AutoInit();
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    M.Dropdown.init(elems, { closeOnClick: false, constrainWidth: false });
-    toggleLanguage();
-});
+const theme = useTheme();
 
-function showLanguageMenu(lang) {
-    toggleLanguage(lang);
-    showLanguages();
-}
-
-function showLanguages() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var dropDown = M.Dropdown.getInstance(elems[0]);
-    setTimeout(() => {
-        dropDown.recalculateDimensions();
-    }, 350);
+theme.global.name.value = fetchValue('theme') ?? 'dark'
+function toggleTheme() {
+    theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
+    storeValue('theme', theme.global.name.value);
 }
 
 var notifications = fetchValue('notification') === 'true';
+var drawer = ref(false);
 </script>
 
 <template>
-    <div class="card-content black-text">
-        <span id="title" class="card-title padding-bottom-16">How much time do I need to work today?</span>
-        <i class="material-icons right dropdown-trigger" data-target='dropdown1'>more_vert</i>
-        <InputBox />
-        <div class="col s12 box-gh-badge">
-            <GitHubBadge />
-        </div>
-    </div>
-    <ul id='dropdown1' class='dropdown-content collapsible dropdownWidth'>
-        <li>
-            <Switch id="notifications" label="Notifications" :disabled="false" v-model="notifications" />
-        </li>
-        <!-- <li>
-      <Switch id="theme" label="Dark mode" :disabled="true" />
-    </li> -->
-        <li class="divider" tabindex="-1"></li>
-        <li>
-            <div class="collapsible-header" @click="showLanguages"><i class="material-icons">language</i>
-                <p id="language">Language</p>
-            </div>
-            <div class="collapsible-body padding-1rem" style="padding: 1rem !important;">
-        <li v-for="(lang, index) in dict" :key="index">
-            <a href="#!" @click="showLanguageMenu(index)">{{ lang.name }}</a>
-        </li>
-        </div>
-        </li>
-    </ul>
+    <v-layout>
+        <v-app-bar>
+            <template v-slot:prepend>
+                <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            </template>
+            <v-app-bar-title>{{ t('$vuetify.title') }}</v-app-bar-title>
+            <v-btn :icon="theme.global.current.value.dark ? 'md:light_mode' : 'md:dark_mode'" variant="text"
+                v-bind="props"
+                @click="toggleTheme"></v-btn>
+            <v-menu>
+                <template v-slot:activator="{ props }">
+                    <v-btn icon="md:translate" variant="text" v-bind="props"></v-btn>
+                </template>
+                <template v-slot:append>
+                    <v-btn icon="md:translate"></v-btn>
+                </template>
+                <v-list>
+                    <v-list-item v-for="(lang, index) in dict" :key="index">
+                        <v-list-item-title @click="($vuetify.locale.current = index) && (storeValue('lang', index))">{{lang.$vuetify.name}}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+        </v-app-bar>
+        <v-navigation-drawer v-model="drawer">
+            <v-list-item>
+                <v-switch id="notifications" :label="t('$vuetify.notifications')" inset :disabled="false"
+                    v-model="notifications" @change="turnOnNotifications(notifications, timeValues)"></v-switch>
+            </v-list-item>
+        </v-navigation-drawer>
+        <v-main>
+            <v-container>
+                <InputBox />
+                <div class="box-gh-badge">
+                    <GitHubBadge />
+                </div>
+            </v-container>
+        </v-main>
+    </v-layout>
 </template>
 
 <style>
-@import "./assets/base.css";
-
-#app {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-
-    font-weight: normal;
-    width: 45%;
-}
-
-@media (min-width: 1024px) {
-    body {
-        display: flex;
-        place-items: center;
-    }
-}
-
-@media (max-width: 412px) {
-    #app {
-        width: 100vw;
-        min-height: 100vh;
-    }
-}
-
-.title {
-    color: black;
-    text-align: center
-}
-
-.padding-bottom-16 {
-    padding-bottom: 16px;
-}
-
-.padding-1rem {
-    padding-right: 1rem !important;
-    padding-left: 1rem !important;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-}
-
-.dropdownWidth {
-    width: 192px !important;
-}
-
 .box-gh-badge {
     display: flex;
     justify-content: center;

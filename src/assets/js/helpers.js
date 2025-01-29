@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { dict } from './lang';
+import dict from './lang';
 import { inject } from 'vue'
 
 var notificationInterval = 0;
@@ -71,7 +71,7 @@ function sliceTime(time) {
     return `0${time}`.slice(-2);
 }
 
-function turnOnNotifications(notification, timeValues) {
+export function turnOnNotifications(notification, timeValues) {
     console.log(notification);
     storeValue('notification', notification);
 
@@ -108,11 +108,6 @@ function turnOnNotifications(notification, timeValues) {
     }
 }
 
-// function toggleDarkMode(status) {
-//     const body = document.body;
-//     storeValue("darkmode", status);
-//     status ? body.classList.add("dark") : body.classList.remove("dark");
-// }
 
 
 export default {
