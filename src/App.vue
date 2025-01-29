@@ -39,7 +39,7 @@ var drawer = ref(false);
                     <v-btn icon="md:translate"></v-btn>
                 </template>
                 <v-list>
-                    <v-list-item v-for="(lang, index) in dict" :key="index">
+                    <v-list-item v-for="(lang, index) in dict" :key="index" class="pointer">
                         <v-list-item-title @click="($vuetify.locale.current = index) && (storeValue('lang', index))">{{lang.$vuetify.name}}</v-list-item-title>
                     </v-list-item>
                 </v-list>
@@ -68,6 +68,10 @@ var drawer = ref(false);
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 </style>
