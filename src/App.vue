@@ -67,8 +67,4 @@ var drawer = ref(false);
     flex-direction: row;
     flex-wrap: wrap;
 }
-
-.pointer {
-    cursor: pointer;
-}
 </style>
