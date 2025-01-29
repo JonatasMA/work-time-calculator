@@ -29,18 +29,16 @@ var drawer = ref(false);
             </template>
             <v-app-bar-title>{{ t('$vuetify.title') }}</v-app-bar-title>
             <v-btn :icon="theme.global.current.value.dark ? 'md:light_mode' : 'md:dark_mode'" variant="text"
-                v-bind="props"
-                @click="toggleTheme"></v-btn>
+                v-bind="props" @click="toggleTheme"></v-btn>
             <v-menu>
                 <template v-slot:activator="{ props }">
-                    <v-btn icon="md:translate" variant="text" v-bind="props"></v-btn>
-                </template>
-                <template v-slot:append>
-                    <v-btn icon="md:translate"></v-btn>
+                    <v-btn v-bind="props" icon="md:translate">
+                    </v-btn>
                 </template>
                 <v-list>
-                    <v-list-item v-for="(lang, index) in dict" :key="index">
-                        <v-list-item-title @click="($vuetify.locale.current = index) && (storeValue('lang', index))">{{lang.$vuetify.name}}</v-list-item-title>
+                    <v-list-item v-for="(lang, index) in dict" :key="index" :value="index">
+                        <v-list-item-title
+                            @click="($vuetify.locale.current = index) && (storeValue('lang', index))">{{ lang.$vuetify.name }}</v-list-item-title>
                     </v-list-item>
                 </v-list>
             </v-menu>
@@ -69,5 +67,4 @@ var drawer = ref(false);
     flex-direction: row;
     flex-wrap: wrap;
 }
-
 </style>
